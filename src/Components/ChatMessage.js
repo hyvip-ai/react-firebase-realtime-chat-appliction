@@ -7,7 +7,7 @@ console.log(photoURL)
  const messegeClass =uid === auth.currentUser.uid? "sent" : "received";
     return (
         <div className={`message ${messegeClass}`}>
-            <img src={photoURL} alt={uid} />
+            <a href={photoURL} target="_blank" rel="noreferrer"><img src={photoURL} alt={uid}/></a>
             <p>{text}</p>
         </div>
     )

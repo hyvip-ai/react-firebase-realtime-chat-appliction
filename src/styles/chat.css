@@ -140,10 +140,14 @@ body {
     color: white;
     background: #0b93f6;
     align-self: flex-end;
+    word-break: break-all;
+    text-align: left;
   }
   .received p {
     background: #e5e5ea;
     color: black;
+    word-break: break-all;
+    text-align: left;
   }
   
   img {
