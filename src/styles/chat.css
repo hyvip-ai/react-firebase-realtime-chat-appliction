@@ -31,6 +31,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     background-color: rgb(40, 37, 53);
+    border-left: 1pxx solid #181717;
   }
   
   main {

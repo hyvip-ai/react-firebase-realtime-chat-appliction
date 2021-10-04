@@ -14,12 +14,13 @@ function Chatroom() {
 
    const addNewMessege = async(e)=>{
     e.preventDefault();
-    const {uid,photoURL} = auth.currentUser;
+    const {uid,photoURL,displayName} = auth.currentUser;
     await messegeRef.add({
         text:formValue,
         createdAt : firebase.firestore.FieldValue.serverTimestamp(),
         uid,
-        photoURL
+        photoURL,
+        displayName
     })
     setFormValue("")
     dummy.current.scrollIntoView({behavious:"smooth"});
