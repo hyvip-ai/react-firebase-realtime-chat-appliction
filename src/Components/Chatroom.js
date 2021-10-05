@@ -5,6 +5,7 @@ import {auth,firestore} from "../firebase_config/firebase"
 import '../styles/chat.css'
 import firebase from "firebase/compat/app"
 function Chatroom() {
+    const present = ""
     const dummy = useRef();
     const messegeRef = firestore.collection("messeges");
     const query = messegeRef.orderBy("createdAt");
@@ -37,11 +38,12 @@ function Chatroom() {
         
         <div>
             
-            <h1 id="mine">leave a Messege !!!</h1>
             
             <div>
+
             <main>
-                {messages? <ChatMesseges messeges={messages}/>:null}
+                
+                {messages? <ChatMesseges  messeges={messages}/>:null}
                 {typing?<p style={{textAlign:"left"}}>{typing} Typing ...</p>:null}
                 <div ref={dummy}></div>
                  
