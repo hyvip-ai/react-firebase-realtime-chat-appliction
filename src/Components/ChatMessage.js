@@ -5,7 +5,7 @@ import '../styles/chat.css'
 function ChatMessage({msg}) {
 const {text,uid,photoURL,displayName,createdAt} = msg
 
- var current = ""
+
  const messegeClass =uid === auth.currentUser.uid? "sent" : "received";
     return (
             <div className="messegeWrapper">

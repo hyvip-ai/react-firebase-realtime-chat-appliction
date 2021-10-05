@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import ChatMessage from './ChatMessage'
 import '../styles/chat.css'
 import moment from 'moment'
@@ -9,13 +9,13 @@ var current = ""
         <div>
             
             {messeges.map((item,i)=>{
-                return <>
-                <div key={item.createdAt.seconds} className="dateTime" style={{color:'white'}}>
+                return (<>
+                <div className="dateTime" style={{color:'white'}}>
 
-                    {current===moment(item.createdAt.seconds*1000).format("LL")?null:current=moment(item.createdAt.seconds*1000).format("LL")}
+                    {item.createdAt?current===moment(item.createdAt.seconds*1000).format("LL")?null:current=moment(item.createdAt.seconds*1000).format("LL"):null}
                 </div>
                  <ChatMessage key={item.id} msg={item}/>
-                 </>
+                 </>)
             })}
         </div>
     )

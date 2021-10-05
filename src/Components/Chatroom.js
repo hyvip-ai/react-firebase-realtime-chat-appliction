@@ -5,13 +5,13 @@ import {auth,firestore} from "../firebase_config/firebase"
 import '../styles/chat.css'
 import firebase from "firebase/compat/app"
 function Chatroom() {
-    const present = ""
+    
     const dummy = useRef();
     const messegeRef = firestore.collection("messeges");
     const query = messegeRef.orderBy("createdAt");
     const [formValue,setFormValue] = useState("")
     const [messages] = useCollectionData(query,{idField:"id"});
-    const [typing, settyping] = useState("")
+    const [typing] = useState("")
     const scrollToBottom = () => {
         dummy.current.scrollIntoView({ behavior: "smooth" })
       }
@@ -24,6 +24,12 @@ function Chatroom() {
    const addNewMessege = async(e)=>{
     e.preventDefault();
     const {uid,photoURL,displayName} = auth.currentUser;
+    var options = {
+        body: formValue,
+        icon: `${photoURL}`,
+       
+      };
+   new Notification(displayName, options);
     await messegeRef.add({
         text:formValue,
         createdAt : firebase.firestore.FieldValue.serverTimestamp(),
@@ -37,6 +43,7 @@ function Chatroom() {
     return (
         
         <div>
+
             <div>
             <main>
                 
