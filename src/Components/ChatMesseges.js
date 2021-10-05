@@ -8,12 +8,11 @@ var current = ""
     return (
         <div>
             
-            {messeges.map((item)=>{
+            {messeges.map((item,i)=>{
                 return <>
                 <div key={item.createdAt.seconds} className="dateTime" style={{color:'white'}}>
-                    {current!==moment(item.createdAt.seconds*1000).format("LL")?current=moment(item.createdAt.seconds*1000).format("LL"):null}
-                    {console.log(current)}
-                    {item.createdAt?(moment(item.createdAt.seconds*1000).format("LL")===current?null:moment(item.createdAt.seconds*1000).format("LL")):null}
+
+                    {current===moment(item.createdAt.seconds*1000).format("LL")?null:current=moment(item.createdAt.seconds*1000).format("LL")}
                 </div>
                  <ChatMessage key={item.id} msg={item}/>
                  </>

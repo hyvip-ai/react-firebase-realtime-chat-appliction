@@ -37,10 +37,7 @@ function Chatroom() {
     return (
         
         <div>
-            
-            
             <div>
-
             <main>
                 
                 {messages? <ChatMesseges  messeges={messages}/>:null}
