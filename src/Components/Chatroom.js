@@ -37,7 +37,7 @@ function Chatroom() {
         displayName
     })
     setFormValue("");
-    new Notification(displayName, options);
+
 
    }
     return (
