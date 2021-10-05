@@ -29,7 +29,6 @@ function Chatroom() {
         icon: `${photoURL}`,
        
       };
-   new Notification(displayName, options);
     await messegeRef.add({
         text:formValue,
         createdAt : firebase.firestore.FieldValue.serverTimestamp(),
@@ -38,6 +37,7 @@ function Chatroom() {
         displayName
     })
     setFormValue("");
+    new Notification(displayName, options);
 
    }
     return (
