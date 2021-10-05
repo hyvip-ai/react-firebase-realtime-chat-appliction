@@ -4,14 +4,16 @@ import {useCollectionData} from "react-firebase-hooks/firestore"
 import {auth,firestore} from "../firebase_config/firebase"
 import '../styles/chat.css'
 import firebase from "firebase/compat/app"
+import "../styles/typing.css"
+import v4 from "uuid/dist/v4"
 function Chatroom() {
-    
+   
     const dummy = useRef();
     const messegeRef = firestore.collection("messeges");
     const query = messegeRef.orderBy("createdAt");
     const [formValue,setFormValue] = useState("")
     const [messages] = useCollectionData(query,{idField:"id"});
-    const [typing] = useState("")
+    // const [typing,setTyping] = useState(false)
     const scrollToBottom = () => {
         dummy.current.scrollIntoView({ behavior: "smooth" })
       }
@@ -34,8 +36,10 @@ function Chatroom() {
     })
     setFormValue("");
 
-
+    // setTyping(false)
    }
+
+
     return (
         
         <div>
@@ -43,12 +47,20 @@ function Chatroom() {
             <div>
             <main>
                 
-                {messages? <ChatMesseges  messeges={messages}/>:null}
-                {typing?<p style={{textAlign:"left"}}>{typing} Typing ...</p>:null}
+                {messages? <ChatMesseges key={v4()}  messeges={messages}/>:null}
+              
+            {/* {typing?<> <div class="chat-bubble">
+                <div class="typing">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                </div>
+                </div></>:null} */}
                 <div ref={dummy}></div>
                  
             </main>
             </div>
+       
             <form  onSubmit={addNewMessege}>
                 <input placeholder="Let's Talk" autoComplete="off" type="text" id="myMsg" value={formValue} onInput={(e)=>{setFormValue(e.target.value)}}/>
                 <button type="submit" disabled={formValue===""?true:false}>&#9992;</button>
