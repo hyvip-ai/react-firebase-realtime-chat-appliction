@@ -160,9 +160,9 @@ body {
 
 #mine{
     position: absolute;
-    z-index: 50;
+    z-index: 9999;
     color: white;
-    top: 0;
-    left: 50%;
+    top: 15px;
+    left: 48%;
     transform: translateX(-50%);
 }

@@ -14,7 +14,9 @@ const {text,uid,photoURL,displayName,createdAt} = msg
             <p>{displayName} <br/>
                 {text}
                 <br />
-                {createdAt?moment(createdAt.seconds*1000).format('MMMM Do YYYY, h:mm:ss a'):null}
+                <span style={{textAlign:'right',display:'block'}}>
+                {createdAt?moment(createdAt.seconds*1000).format('LT'):null}
+                </span>
             </p>
         </div>
     )
