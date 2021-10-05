@@ -24,11 +24,7 @@ function Chatroom() {
    const addNewMessege = async(e)=>{
     e.preventDefault();
     const {uid,photoURL,displayName} = auth.currentUser;
-    var options = {
-        body: formValue,
-        icon: `${photoURL}`,
-       
-      };
+
     await messegeRef.add({
         text:formValue,
         createdAt : firebase.firestore.FieldValue.serverTimestamp(),
